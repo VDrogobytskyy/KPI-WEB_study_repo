@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Реєстр генеруючих установок</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <header id="mainNav" class="navbar navbar-expand-md navbar-light sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="bg-primary rounded-circle me-2" style="width: 12px; height: 12px;"></div>
+                <span class="fw-bold" style="color: #0b1b3a; letter-spacing: 0.5px;">Реєстр генеруючих установок</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav ms-auto gap-md-4">
+                    <li class="nav-item"><a class="nav-link" href="#home">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#registration">Реєстрація</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#plantsList">Реєстр установок</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero hero-media d-flex align-items-center" style="min-height: 400px; background: linear-gradient(rgba(11, 27, 58, 0.7), rgba(11, 27, 58, 0.7)), url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80') center/cover;">
+            <div class="container text-white text-center">
+                <h1 class="display-3 fw-bold mb-4">Облік об'єктів енергетики</h1>
+                <p class="lead mx-auto" style="max-width: 700px;">Централізована система реєстрації та контролю генеруючих установок в єдиній енергосистемі України</p>
+            </div>
+        </section>
+
+        <section id="registration" class="section-pad bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card info-card p-4 border-0 shadow">
+                            <h2 class="section-title text-center mb-4">Форма реєстрації об'єкта</h2>
+                            <form id="plantForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Назва підприємства</label>
+                                        <input type="text" name="company" class="form-control" placeholder="Наприклад: ДТЕК" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">ЄДРПОУ (8 цифр)</label>
+                                        <input type="text" name="edrpou" class="form-control" pattern="\d{8}" maxlength="8" placeholder="12345678" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Тип генерації</label>
+                                        <select name="type" class="form-select" required>
+                                            <option value="ГЕС">Гідроелектростанція (ГЕС)</option>
+                                            <option value="СЕС">Сонячна (СЕС)</option>
+                                            <option value="ВЕС">Вітрова (ВЕС)</option>
+                                            <option value="ТЕС">Теплова (ТЕС)</option>
+                                            <option value="АЕС">Атомна (АЕС)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Потужність (МВт)</label>
+                                        <input type="number" name="power" step="0.1" class="form-control" placeholder="408.5" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold">Номер ліцензії</label>
+                                        <input type="text" name="license" class="form-control" placeholder="АЕ №123456" required>
+                                    </div>
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-primary px-5 py-2 fw-bold">Зареєструвати в системі</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="formResponse" class="mt-3 text-center"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plantsList" class="section-pad">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Реєстр зареєстрованих установок</h2>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Підприємство</th>
+                                <th>ЄДРПОУ</th>
+                                <th>Тип</th>
+                                <th>Потужність</th>
+                                <th>Ліцензія</th>
+                                <th>Дата реєстрації</th>
+                            </tr>
+                        </thead>
+                        <tbody id="plantsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacts" class="footer pt-5 pb-4" style="background-color: #0b1b3a; color: white;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3 text-primary">Про систему</h5>
+                    <p class="small opacity-75">Єдиний Державний програмний комплекс для автоматизованого збору даних про генеруючі потужності.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3 text-primary">Контакти</h5>
+                    <ul class="list-unstyled small opacity-75">
+                        <li class="mb-2">м. Київ, Шевченківський район</li>
+                        <li class="mb-2">+38 (099) 146-23-24</li>
+                        <li class="mb-2">UKR_reestr@reestr.ua</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <h5 class="fw-bold mb-3 text-primary">Статус сервісу</h5>
+                    <span class="badge bg-success">Сервер активний</span>
+                </div>
+            </div>
+            <hr class="mt-4 opacity-25">
+            <div class="row align-items-center small opacity-50">
+                <div class="col-md-6 text-center text-md-start">© 2026 Україна м.Київ. Всі права захищені.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

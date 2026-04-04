@@ -1,0 +1,56 @@
+:root {
+  --ink: #0b1b3a;
+  --accent: #0f5fff;
+  --paper: #f5f9ff;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--ink);
+  background-color: #fff;
+}
+
+.section-pad {
+  padding: 80px 0;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--ink) !important;
+}
+
+.nav-link:hover {
+  color: var(--accent) !important;
+}
+
+.info-card {
+  border-top: 5px solid var(--accent) !important;
+  border-radius: 15px;
+}
+
+.hero .eyebrow {
+  border-left: 4px solid var(--accent);
+  padding-left: 15px;
+}
+
+.table-primary {
+  --bs-table-bg: #e6f0ff;
+  --bs-table-color: var(--ink);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0a4ecb;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(15, 95, 255, 0.3);
+}
