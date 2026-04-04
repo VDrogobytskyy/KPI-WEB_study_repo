@@ -1,6 +1,7 @@
 {
   "name": "lab4-rest-api-chp",
   "version": "1.0.0",
+  "description": "REST API для управління даними ТЕЦ",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
