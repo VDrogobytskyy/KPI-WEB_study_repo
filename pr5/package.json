@@ -1,0 +1,11 @@
+{
+  "name": "bess-monitor",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

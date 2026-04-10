@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BESS Monitor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="topbar page-shell">
+      <a class="brand" href="#home">
+        <span class="brand-dot"></span>
+        <span class="brand-text">Реєстр та моніторинг BESS</span>
+      </a>
+      <nav class="site-nav" aria-label="Основна навігація">
+        <a href="#home">Головна</a>
+        <a href="#dashboard">Панель BESS</a>
+        <a href="#analytics">Аналітика</a>
+        <a href="#contacts">Контакти</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero-banner">
+      <div class="page-shell hero-banner-inner">
+        <h1>Система акумулювання енергії (BESS)</h1>
+        <p class="hero-banner-text">
+          Вебзастосунок для моніторингу Battery Energy Storage System
+          у режимі реального часу з індикаторами стану, графіком потужності та
+          таблицею параметрів батарейного блоку.
+        </p>
+      </div>
+    </section>
+
+    <section id="dashboard" class="dashboard-section">
+      <div class="page-shell">
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Оперативна панель</p>
+            <h2 class="section-heading">Моніторинг BESS у реальному часі</h2>
+            <p class="subtitle">
+              Система показує рівень заряду, потужність заряду або розряду,
+              електричні параметри та температурний режим батарейного блоку.
+            </p>
+          </div>
+        </section>
+
+        <section class="grid metrics-grid">
+          <article class="card metric-card accent-blue">
+            <p class="metric-label">Потужність</p>
+            <h3 id="powerValue">0 кВт</h3>
+            <p class="metric-hint">Позитивна: заряд, негативна: розряд</p>
+          </article>
+
+          <article class="card metric-card accent-sand">
+            <p class="metric-label">Напруга батареї</p>
+            <h3 id="voltageValue">0 В</h3>
+            <p class="metric-hint">Шина постійного струму</p>
+          </article>
+
+          <article class="card metric-card accent-mint">
+            <p class="metric-label">Струм</p>
+            <h3 id="currentValue">0 А</h3>
+            <p class="metric-hint">Миттєве значення контуру</p>
+          </article>
+
+          <article class="card metric-card accent-coral">
+            <p class="metric-label">Кількість циклів</p>
+            <h3 id="cyclesValue">0</h3>
+            <p class="metric-hint">Накопичений ресурс батареї</p>
+          </article>
+
+          <article class="card temperature-card temperature-wide">
+            <div class="temperature-top">
+              <h3>Температура батарейного блоку</h3>
+              <strong id="temperatureValue">0 °C</strong>
+            </div>
+            <div class="temperature-gauge">
+              <div class="temperature-scale"></div>
+              <div class="temperature-indicator" id="temperatureIndicator"></div>
+            </div>
+            <p class="card-note" id="temperatureState">Очікування даних...</p>
+          </article>
+
+          <article class="card soc-card">
+            <div class="card-header">
+              <h3>Рівень заряду</h3>
+              <strong id="socValue">0%</strong>
+            </div>
+            <div class="progress-track" aria-label="Прогрес-бар рівня заряду">
+              <div class="progress-fill" id="socBar"></div>
+            </div>
+            <p class="card-note">Номінальна ємність системи: 2.5 МВт·год</p>
+          </article>
+
+          <article class="status-panel status-panel-card">
+            <span class="status-dot" id="statusDot"></span>
+            <div>
+              <p class="status-label">Стан системи</p>
+              <h2 id="systemMode">Ініціалізація</h2>
+            </div>
+          </article>
+        </section>
+
+        <section id="analytics" class="grid content-grid">
+          <article class="card chart-card">
+            <div class="card-header">
+              <h3>Графік потужності заряду/розряду</h3>
+              <span class="pill">Останні 16 вимірювань</span>
+            </div>
+            <div class="chart-frame">
+              <canvas id="powerChart"></canvas>
+            </div>
+          </article>
+
+          <article class="card table-card">
+            <div class="card-header">
+              <h3>Таблиця параметрів батареї</h3>
+              <span class="pill" id="lastUpdate">Оновлення: --:--:--</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Параметр</th>
+                    <th>Значення</th>
+                    <th>Статус</th>
+                  </tr>
+                </thead>
+                <tbody id="metricsTable"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacts" class="site-footer">
+    <div class="page-shell footer-grid">
+      <div>
+        <h3 class="footer-title">Про систему</h3>
+        <p class="footer-text">
+          Вебінтерфейс для спостереження за акумуляторною системою накопичення
+          енергії, контролю ключових параметрів і оцінки робочого стану BESS.
+        </p>
+      </div>
+      <div>
+        <h3 class="footer-title">Контакти</h3>
+        <p class="footer-text">м. Київ, Шевченківський район</p>
+        <p class="footer-text">+38 (099) 146-23-24</p>
+        <p class="footer-text">bess_monitor@reestr.ua</p>
+      </div>
+      <div class="footer-status">
+        <h3 class="footer-title">Статус сервісу</h3>
+        <span class="footer-badge">Сервер активний</span>
+      </div>
+    </div>
+    <div class="page-shell footer-bottom">
+      <p>© 2026 Україна, м. Київ. Всі права захищені.</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
