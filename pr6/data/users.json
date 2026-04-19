@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "514e263b-57da-43d0-9f51-36945af9c6a2",
+      "username": "op1",
+      "usernameLower": "op1",
+      "role": "operator",
+      "password": {
+        "algo": "scrypt",
+        "params": {
+          "keyLen": 64,
+          "N": 16384,
+          "r": 8,
+          "p": 1
+        },
+        "salt": "ovweSrEUzm30+38jP76wLg==",
+        "hash": "1UY2lM1nGkdQvcGCbf3mnsxhJ8cMIwisc2k6xYtgO+zXhPDVuMhdKKBNChC6byenKnHULwUeK24zH+XctuSdTw=="
+      },
+      "createdAt": "2026-04-19T20:52:21.456Z"
+    },
+    {
+      "id": "69d8b4c3-d258-46f5-ad23-09b6ccb84cbd",
+      "username": "sup1",
+      "usernameLower": "sup1",
+      "role": "operator",
+      "password": {
+        "algo": "scrypt",
+        "params": {
+          "keyLen": 64,
+          "N": 16384,
+          "r": 8,
+          "p": 1
+        },
+        "salt": "eMsltagQUSaIbojEvsg1qQ==",
+        "hash": "hmty26035srFxQtz7ujYh/1MqpVHCDVuBNwEdLUlMVSCKRlxydCLM9C52PiGYIaQeQ376K8X+aIzDVQ2y50L2w=="
+      },
+      "createdAt": "2026-04-19T20:52:52.849Z"
+    }
+  ]
+}
