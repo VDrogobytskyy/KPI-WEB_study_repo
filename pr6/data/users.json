@@ -35,6 +35,60 @@
         "hash": "hmty26035srFxQtz7ujYh/1MqpVHCDVuBNwEdLUlMVSCKRlxydCLM9C52PiGYIaQeQ376K8X+aIzDVQ2y50L2w=="
       },
       "createdAt": "2026-04-19T20:52:52.849Z"
+    },
+    {
+      "id": "61c4fcd9-22d1-4cdf-b6e9-0b9a7663f972",
+      "username": "op123",
+      "usernameLower": "op123",
+      "role": "operator",
+      "password": {
+        "algo": "scrypt",
+        "params": {
+          "keyLen": 64,
+          "N": 16384,
+          "r": 8,
+          "p": 1
+        },
+        "salt": "fiZSMi3jfcdfQwHL/7fz6A==",
+        "hash": "A6TtCaJ5asF9DYWzTLsQ8Fndlk6oAi+157IRv0f46WY8FCPdcYk/LUcVMPYna6Q5luOh+EAakdsvB+1QyYJi8g=="
+      },
+      "createdAt": "2026-04-20T12:26:49.166Z"
+    },
+    {
+      "id": "18351bff-4585-4c2e-9d1b-4621005249d5",
+      "username": "sup123",
+      "usernameLower": "sup123",
+      "role": "operator",
+      "password": {
+        "algo": "scrypt",
+        "params": {
+          "keyLen": 64,
+          "N": 16384,
+          "r": 8,
+          "p": 1
+        },
+        "salt": "4pmbWteYDB2tSi2H/QDCAQ==",
+        "hash": "3jk4qCFcFG4L+63xy9ZEcKidXXqgGIuK6I/+uepAVkMKPQ5d0dvvSDXq3GWPyrCamkLsEabdWK5qHBmeNYn+Ag=="
+      },
+      "createdAt": "2026-04-20T12:27:47.185Z"
+    },
+    {
+      "id": "c8799991-519c-442a-956f-b12264048e82",
+      "username": "sup2",
+      "usernameLower": "sup2",
+      "role": "supervisor",
+      "password": {
+        "algo": "scrypt",
+        "params": {
+          "keyLen": 64,
+          "N": 16384,
+          "r": 8,
+          "p": 1
+        },
+        "salt": "ErBDckzCJDL2VPn/w6e87w==",
+        "hash": "BYisAAR8trVz86og8XFqVXfUZXaNzlNbRPrhc+HzWEorioWfvlWjVhiizP+s1OT725kaVflS3c18PoIpF8l0fQ=="
+      },
+      "createdAt": "2026-04-20T12:49:29.353Z"
     }
   ]
 }

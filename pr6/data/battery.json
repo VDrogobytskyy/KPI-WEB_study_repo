@@ -1,7 +1,7 @@
 {
-  "soc": 45,
-  "mode": "discharging",
-  "setpointKw": 120,
-  "emergencyStop": false,
-  "updatedAt": "2026-04-19T20:58:11.249Z"
+  "soc": 40,
+  "mode": "stopped",
+  "setpointKw": 0,
+  "emergencyStop": true,
+  "updatedAt": "2026-04-20T12:50:10.858Z"
 }
